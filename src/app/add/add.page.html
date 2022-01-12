@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segmentValue">
+      <ion-segment-button value="goal">
+        <ion-label>Objectifs</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="task">
+        <ion-label>Tâches</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<div *ngIf="segmentValue == 'goal'">
+  <ion-item>
+    <ion-note text-center>Entrez le nom de votre objectif et donnez-lui
+      un thème couleur</ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Objectif:</b></ion-label>
+    <ion-input [(ngModel)]="goal.text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Code couleur:</b></ion-label>
+    <ion-badge [color]="goal.color">•</ion-badge>
+    <ion-select [(ngModel)]="goal.color" interface="popover">
+      <ion-select-option value="primary">Bleu</ion-select-option>
+      <ion-select-option value="secondary">Turquoise</ion-select-option>
+      <ion-select-option value="tertiary">Violet</ion-select-option>
+      <ion-select-option value="success">Vert</ion-select-option>
+      <ion-select-option value="warning">Jaune</ion-select-option>
+      <ion-select-option value="danger">Rouge</ion-select-option>
+      <ion-select-option value="dark">Noir</ion-select-option>
+      <ion-select-option value="medium">Gris</ion-select-option>
+      <ion-select-option value="light">Blanc</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button (click)="addGoal()" expand="block">Ajouter</ion-button>
+</div>
+
+<div *ngIf="segmentValue == 'task'">
+  <ion-item>
+    <ion-note text-center>Entrez le nom de votre tâche et donnez-lui
+      une catégorie</ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Tâche:</b></ion-label>
+    <ion-input [(ngModel)]="task.text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Catégorie:</b></ion-label>
+    <ion-badge [color]="task.color">•</ion-badge>
+    <ion-select [(ngModel)]="task.categorie" interface="popover" (ionChange)="changeColor()">
+
+      <ion-select-option *ngFor="let categorie of categories" [value]="categorie.text">
+        {{ categorie.text }}
+      </ion-select-option>
+    </ion-select>
+
+  </ion-item>
+  <div class="ion-padding">
+    <ion-button (click)="addTask()" expand="block">Ajouter</ion-button>
+
+  </div>
+</div>
