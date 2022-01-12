@@ -1,5 +1,5 @@
 
-<ion-header collapse="condense">
+<ion-header>
   <ion-toolbar>
     <ion-title size="large">Objectifs</ion-title>
     <ion-buttons slot="end">
@@ -17,7 +17,7 @@ disabled="false">
   <!-- <ion-item-sliding> permet de fair slider un element -->
   <ion-item lines="none"> <!--2.-->
     <!-- <ion-item> balise representant un item -->
-    <ion-badge [color]="goal.color" mode="ios" slot="start">c</ion-badge><!--2.-->
+    <ion-icon name="checkmark-circle-outline"[color]="goal.color" slot="start"></ion-icon><!--2.-->
     <!-- <ion-badge> balise representant un badge -->
     <ion-label>
       <!-- <ion-label> balise representant un label -->
@@ -41,10 +41,10 @@ disabled="false">
 </ion-reorder-group>
 
 <div id="container">
-  <ion-header collapse="condense">
+  <ion-header >
 
     <ion-toolbar>
-      <ion-title color="ligth" size="large">Tâches</ion-title>
+      <ion-title size="large">Tâches</ion-title>
       <ion-note slot="end" class="bold_note">
       {{ taskPercentage }}%
       </ion-note>

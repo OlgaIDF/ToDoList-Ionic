@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button (click) ="closeModal()">
+      <ion-button color ="dark" (click) ="closeModal()">
       <ion-icon slot="icon-only" name="close"></ion-icon>
     </ion-button>
   </ion-buttons>
-    <ion-title>Ajouter</ion-title>
+    <ion-title size="large">Ajouter</ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment [(ngModel)]="segmentValue">
@@ -44,7 +44,9 @@
       <ion-select-option value="light">Blanc</ion-select-option>
     </ion-select>
   </ion-item>
+  <div class="ion-padding">
   <ion-button (click)="addGoal()" expand="block">Ajouter</ion-button>
+  </div>
 </div>
 
 <div *ngIf="segmentValue == 'task'">
